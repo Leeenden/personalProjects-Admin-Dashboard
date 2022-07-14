@@ -1,13 +1,18 @@
 import React from 'react';
+// link imports 
 import {Link, NavLink } from "react-router-dom";
+// icon imports
 import {SiShopware} from "react-icons/si";
 import {MdOutlineCancel } from "react-icons/md";
+// tooltip import
 import {TooltipComponent} from "@syncfusion/ej2-react-popups";
-
+// dummy data import
 import {links} from "../data/dummy";
+// context provider import
+import {useStateContext} from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const activeMenu = true;
+  const {activeMenu, setActiveMenu} = useStateContext();
 
   const activeLinks = "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
   const normalLinks = "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
@@ -21,7 +26,9 @@ const Sidebar = () => {
           <SiShopware /> <span> Shoptopia</span>
         </Link>
         <TooltipComponent content="Menu" position="BottomCenter">
-          <button type="button" onClick={() => {}} 
+          <button 
+            type="button" 
+            onClick={() => setActiveMenu((previousActiveMenu) => !previousActiveMenu)} 
             className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
             <MdOutlineCancel />
           </button>
