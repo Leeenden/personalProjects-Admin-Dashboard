@@ -8,6 +8,7 @@ import {Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kan
 import "./App.css";
 import {useStateContext} from "./contexts/ContextProvider";
 
+// changed files name to fix error"
 const App = () => {
   const {activeMenu, themeSettings, setThemeSettings} = useStateContext();
   return (
