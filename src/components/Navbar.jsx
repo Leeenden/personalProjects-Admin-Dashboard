@@ -10,7 +10,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 // dummy data import
 import avatar from "../data/avatar.jpg";
 // navbar components import
-import {Cart, Chat, Notification, UserProfile} from ".";
+import { Cart, Chat, Notification, UserProfile } from ".";
 // state context import
 import {useStateContext} from "../contexts/ContextProvider";
 
@@ -60,7 +60,7 @@ const Navbar = () => {
       title="Menu" 
       customFunc={() => 
         setActiveMenu((previousActiveMenu) => !previousActiveMenu)} 
-      color="blue"
+      color={currentColor}
       icon={<AiOutlineMenu/>} />
         <div className="flex">
           <NavButton title="Cart" customFunc={() => 
@@ -92,7 +92,7 @@ const Navbar = () => {
             {isClicked.cart && <Cart />}
             {isClicked.chat && <Chat />}
             {isClicked.notification && <Notification />}
-            {isClicked.userProfile && <UserProfile />}
+            {isClicked.userProfile && (<UserProfile />)}
         </div>
     </div>
   )
